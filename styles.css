@@ -153,6 +153,17 @@ header nav a:hover {
 #central-icon img:hover {
     transform: scale(1.1);
 }
+
+@media (max-width: 768px) {
+    /* Aquí es donde cambiamos el comportamiento para Tablets y Celulares */
+
+    /* Importante: Ajustamos el header para que los elementos se apilen */
+    header {
+        flex-direction: column; /* Apila los elementos: logo_1, nav, central-icon, search, carrito */
+        align-items: center; /* Centra los elementos apilados horizontalmente */
+        padding-top: 20px; /* NEW: Añade espacio superior para que #central-icon no se salga tanto */
+        position: relative; /* Necesario para que los elementos absolute como search/carrito se posicionen respecto a el */
+    }
  
 #search, #carrito img {
     height: 30px; /* Tamaño original de los íconos */
