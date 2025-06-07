@@ -129,7 +129,7 @@ header nav a:hover {
  
 #central-icon {
     position: absolute;
-    left: 90%;
+    left: 85%;
     transform: translateX(-50%);
     height: 75px;
     display: flex;
@@ -263,11 +263,11 @@ header nav a:hover {
 }
  
 #texto-empresa img {
-    width: 13%; /* IMAGEN MÁS CHICA! Reducido de 18% a 13% */
+    width: 12%; /* IMAGEN MÁS CHICA! Reducido de 18% a 13% */
     border-radius: 20px;
     position: absolute;
     top: 50%;
-    right: 5%;
+    right: 1%;
     transform: translateY(-50%) rotate(3deg);
     box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.3);
     transition: transform 0.5s ease;
@@ -623,12 +623,13 @@ footer {
 }
  
 #valores > p {
-    height: auto;
-    text-align: justify;
+    height: 15px;
+    text-align: center;
     width: 95%;
     margin: 10px auto;
     color: var(--color-dark-gray);
     font-family: 'Inter', sans-serif;
+    font-size: 120px;
 }
  
 #filosofia > p {
