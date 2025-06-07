@@ -92,6 +92,8 @@ a:hover {
  
 /* Header Styles - RESTAURADO EXACTAMENTE A LA VERSIÓN ORIGINAL SOLICITADA */
 
+/* --- ORIGINAL HEADER STYLES (for DESKTOP) --- */
+/* These styles remain largely as you had them, ensuring centering on desktop. */
 header {
     background-color: #ffffff; /* Blanco puro para el header */
     height: 70px;
@@ -108,37 +110,38 @@ header {
 header nav {
     display: flex;
     gap: 20px;
-    margin-right: auto; /* Empuja la nav a la izquierda */
-    border-bottom: 2px solid var(--color-original-header-line); /* Línea de navegación original */
-    padding-bottom: 5px; /* Espacio entre el texto y la línea */
+    margin-right: auto; /* Pushes the nav to the left (your original setup) */
+    border-bottom: 2px solid var(--color-original-header-line);
+    padding-bottom: 5px;
 }
 
 header nav a {
     font-size: 1.1em;
     font-weight: bold;
-    padding: 5px 10px; /* Padding para que la línea se vea mejor debajo del texto */
-    border-radius: 0; /* Sin bordes redondeados en los enlaces */
-    color: #333; /* Color de los enlaces de nav original */
+    padding: 5px 10px;
+    border-radius: 0;
+    color: #333;
     transition: color 0.3s ease;
 }
 
 header nav a:hover {
-    color: var(--color-original-header-line); /* Color de la línea de nav en hover (original) */
+    color: var(--color-original-header-line);
     background-color: transparent;
     transform: none;
 }
 
-/* --- ESTILOS ORIGINALES DE #central-icon (para COMPUTADORA) --- */
-/* Mantén estos estilos EXACTAMENTE como los tienes. */
+/* --- #central-icon STYLES (for DESKTOP) --- */
+/* This ensures it's centered on desktop */
 #central-icon {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 75px; /* Altura de la "N" en computadora */
-    display: flex;
+    position: absolute; /* Keeps it absolutely positioned for desktop */
+    left: 50%; /* Moves it to the center of the header's width */
+    transform: translateX(-50%); /* Adjusts it by half its own width to truly center it */
+    height: 75px; /* Size on desktop */
+    display: flex; /* Helps center the image inside if needed */
     align-items: center;
     justify-content: center;
-    top: -5px; /* Elevación de la "N" en computadora */
+    top: -5px; /* Adjust vertical position for desktop */
+    z-index: 100;
 }
 
 #central-icon img {
@@ -154,110 +157,104 @@ header nav a:hover {
 }
 
 /* ---------------------------------------------------------------------- */
-/* --- MEDIA QUERIES: ESTILOS SOLO PARA CELULAR Y IPAD (PANTALLAS PEQUEÑAS) --- */
+/* --- MEDIA QUERIES: STYLES FOR MOBILE AND IPAD --- */
 /* ---------------------------------------------------------------------- */
 
 @media (max-width: 900px) {
-    /* Aquí puedes poner ajustes menores para tablets grandes si es necesario */
-    /* Por ahora, no hay cambios para #central-icon aquí, solo si tuvieras otros elementos */
+    /* No specific changes for #central-icon here, unless you have other elements */
 }
 
 @media (max-width: 768px) {
-    /* --- Ajustes para el HEADER COMPLETO en Celular y iPad (hasta 768px de ancho) --- */
+    /* --- HEADER adjustments for Mobile/iPad (up to 768px width) --- */
     header {
-        flex-direction: column; /* CRÍTICO: Apila los elementos del header verticalmente */
-        align-items: center; /* Centra los elementos apilados (logo-1, central-icon, nav, etc.) */
-        padding: 15px 10px; /* Ajusta el padding general del header en móviles */
-        height: auto; /* Permite que el header se expanda verticalmente para contener los elementos apilados */
-        padding-top: 20px; /* Espacio extra en la parte superior del header para el #central-icon */
-        position: relative; /* CRÍTICO: El header debe ser 'relative' para que #central-icon, search y carrito se posicionen correctamente respecto a él */
+        flex-direction: column; /* CRITICAL: Stacks header items vertically */
+        align-items: center; /* <--- CRITICAL: Centers ALL stacked items (including #central-icon and nav) horizontally */
+        padding: 15px 10px;
+        height: auto;
+        padding-top: 20px;
+        position: relative; /* Header must be relative for absolute children (search/carrito) */
     }
 
-    /* --- Ajustes para #central-icon (la "N") en Celular y iPad --- */
+    /* --- #central-icon adjustments for Mobile/iPad --- */
     #central-icon {
-        position: static; /* <--- CLAVE: Lo saca del posicionamiento absoluto y lo devuelve al flujo normal de flexbox */
-        transform: none; /* <--- Elimina la transformación de centrado (translateX) */
-        left: auto; /* <--- Elimina la propiedad 'left' */
-        top: auto; /* <--- Elimina la propiedad 'top' */
-        height: 60px; /* <--- Reduce el tamaño de la "N" en móviles */
-        order: 0; /* <--- CLAVE: Asegura que la "N" sea el PRIMER elemento en la pila vertical del header */
-        margin-left: auto; /* <--- NUEVO: Empuja la "N" hacia la DERECHA */
-        margin-right: 20px; /* <--- NUEVO: Añade un margen a la derecha para que no se pegue al borde */
-        margin-bottom: 15px; /* Espacio debajo de la "N" para separarla de la navegación */
+        position: static; /* <--- KEY: Switches to static position, making it a normal flex item */
+        transform: none; /* <--- Resets the desktop centering transform */
+        left: auto; /* <--- Resets 'left' property */
+        top: auto; /* <--- Resets 'top' property */
+        height: 60px; /* <--- Reduces size for mobile */
+        order: 0; /* <--- Ensures it's the FIRST item in the vertical stack */
+        margin: 0 0 15px 0; /* <--- NEW: Removes auto margins and sets bottom margin only for separation */
+        /* margin-left: auto; and margin-right: auto; were causing issues for centering when align-items: center was also present on parent.
+           Removing them or setting them to 0 ensures align-items: center on the header does its job. */
     }
 
     #central-icon img {
-        height: 100%; /* La imagen se ajusta al nuevo height de #central-icon */
+        height: 100%;
     }
 
-    /* --- Ajustes para la NAVEGACIÓN (nav) en Celular y iPad --- */
+    /* --- NAVIGATION adjustments for Mobile/iPad --- */
     header nav {
-        order: 1; /* <--- CLAVE: Coloca la navegación DESPUÉS de la "N" (central-icon) */
-        width: 100%; /* La navegación ocupa todo el ancho disponible */
-        margin-right: 0; /* Quita el margen que empujaba a la izquierda en desktop */
-        margin-top: 15px; /* Espacio arriba de la navegación para separarla de la "N" */
-        justify-content: center; /* Centra los enlaces de navegación */
-        flex-wrap: wrap; /* Permite que los enlaces pasen a la siguiente línea si no caben */
-        border-bottom: none; /* Elimina la línea inferior si no la quieres en móvil */
-        padding-bottom: 0; /* Elimina el padding de la línea */
-        gap: 10px; /* Reduce el espacio entre los enlaces */
+        order: 1; /* Places nav AFTER #central-icon */
+        width: 100%; /* Nav takes full width */
+        margin-right: 0; /* Resets desktop margin */
+        margin-top: 15px; /* Space above nav */
+        justify-content: center; /* Centers nav links horizontally */
+        flex-wrap: wrap; /* Allows links to wrap */
+        border-bottom: none;
+        padding-bottom: 0;
+        gap: 10px;
     }
 
     header nav a {
-        font-size: 0.9em; /* Reduce el tamaño de fuente de los enlaces */
+        font-size: 0.9em;
         padding: 5px 8px;
-        white-space: nowrap; /* Intenta mantener los enlaces en una sola línea */
+        white-space: nowrap;
     }
 
-    /* --- Ajustes para #logo-1 (si lo tienes) y los ICONOS (lupa y carrito) en Celular y iPad --- */
-    /* Asumo que #logo-1 es el logo de proyectosinfondo.png, generalmente se oculta o reubica */
+    /* --- #logo-1 and ICON adjustments for Mobile/iPad --- */
     #logo-1 {
-        display: none; /* Oculta el logo de la izquierda si no lo necesitas en móvil */
+        display: none; /* Hides the left logo */
     }
 
-    /* Lupa y Carrito */
-    /* Necesitarás las reglas de tus iconos de búsqueda y carrito aquí, si los tienes.
-       Si quieres que estén en las esquinas, probablemente seguirán siendo 'absolute'.
-       Por ejemplo: */
     #search-button,
     #carrito {
-        position: absolute; /* Para que floten en las esquinas */
-        top: 20px; /* Distancia desde arriba del header */
-        z-index: 101; /* Para que estén por encima de otros elementos */
+        position: absolute;
+        top: 20px;
+        z-index: 101;
     }
     #search-button {
-        right: 70px; /* Distancia desde la derecha para la lupa */
+        right: 70px;
     }
     #carrito {
-        right: 20px; /* Distancia desde la derecha para el carrito */
+        right: 20px;
     }
     #search-icon, #carrito img {
-        height: 25px; /* Reduce el tamaño de los iconos en móvil */
+        height: 25px;
     }
 }
 
 @media (max-width: 480px) {
-    /* --- Ajustes para Celulares muy pequeños (hasta 480px de ancho) --- */
+    /* --- Further adjustments for very small mobiles --- */
     header {
-        padding: 10px 5px; /* Menos padding general del header */
-        padding-top: 15px; /* Menos espacio superior en header */
+        padding: 10px 5px;
+        padding-top: 15px;
     }
     #central-icon {
-        height: 50px; /* La "N" aún más pequeña en pantallas muy chicas */
-        margin-bottom: 10px; /* Menos espacio debajo de la "N" */
-        margin-right: 15px; /* Ajusta el margen derecho para pantallas muy pequeñas */
+        height: 50px; /* Smaller "N" */
+        margin-bottom: 10px; /* Less bottom margin */
+        /* No margin-left/right here, align-items: center on header handles it */
     }
     header nav {
-        margin-top: 10px; /* Menos espacio arriba de la navegación */
-        gap: 5px; /* Menos espacio entre enlaces */
-        justify-content: space-around; /* Distribuye los enlaces uniformemente */
+        margin-top: 10px;
+        gap: 5px;
+        justify-content: space-around;
     }
     header nav a {
-        font-size: 0.8em; /* Fuente aún más pequeña para enlaces */
+        font-size: 0.8em;
         padding: 5px 5px;
     }
     #search-button, #carrito {
-        top: 15px; /* Ajusta la posición de los iconos si el header es más compacto */
+        top: 15px;
     }
     #search-button {
         right: 60px;
