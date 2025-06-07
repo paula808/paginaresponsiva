@@ -93,7 +93,7 @@ a:hover {
 
 header {
     background-color: #ffffff; /* Blanco puro para el header */
-    height: 70px;
+    height: 75px;
     padding: 0 30px;
     display: flex;
     align-items: center;
@@ -131,7 +131,7 @@ header nav a:hover {
     position: absolute;
     left: 85%;
     transform: translateX(-50%);
-    height: 75px;
+    height: 70px;
     display: flex;
     align-items: right;
     justify-content: right;
@@ -263,7 +263,7 @@ header nav a:hover {
 }
  
 #texto-empresa img {
-    width: 12%; /* IMAGEN MÁS CHICA! Reducido de 18% a 13% */
+    width: 9%; /* IMAGEN MÁS CHICA! Reducido de 18% a 13% */
     border-radius: 20px;
     position: absolute;
     top: 50%;
