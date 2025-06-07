@@ -15,36 +15,36 @@
         font-size: 100%;
     }
  
-    /* Ocultar la navegación en pantallas pequeñas si no se usa un menú hamburguesa */
+
     nav {
         display: none;
     }
 }
  
-/* Definición de la nueva paleta de colores con variables CSS */
+
 :root {
-    --color-deep-blue: #1A202C; /* Azul muy oscuro, para texto principal y fondos */
-    --color-dark-gray: #4A5568; /* Gris oscuro, para texto secundario */
-    --color-light-gray: #F7FAFC; /* Gris muy claro, casi blanco, para fondos principales */
-    --color-soft-gray: #EDF2F7; /* Gris claro intermedio, para secciones de fondo */
-    --color-teal-green: #38A169; /* Verde azulado/esmeralda, acento */
-    --color-teal-green-hover: #2F855A; /* Verde azulado/esmeralda más oscuro para hover */
-    --color-original-header-line: #8c4416; /* Color de la línea del header (marrón original) */
-    --color-white: #ffffff; /* Blanco puro */
-    --color-black: #000000; /* Negro puro (para sombras y overlays) */
+    --color-deep-blue: #1A202C; 
+    --color-dark-gray: #4A5568;
+    --color-light-gray: #F7FAFC; 
+    --color-soft-gray: #EDF2F7; 
+    --color-teal-green: #38A169; 
+    --color-teal-green-hover: #2F855A; 
+    --color-original-header-line: #8c4416; 
+    --color-white: #ffffff; 
+    --color-black: #000000; 
 }
  
  
-/* Base Styles */
+
 body {
     font-size: 16px;
-    font-family: 'Inter', sans-serif; /* Nueva fuente para el cuerpo del texto */
+    font-family: 'Inter', sans-serif; 
     letter-spacing: 0.03em;
-    background-color: var(--color-light-gray); /* Fondo principal claro */
+    background-color: var(--color-light-gray); 
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: var(--color-dark-gray); /* Color de texto neutral (más oscuro) */
+    color: var(--color-dark-gray); 
 }
  
 h1 {
@@ -52,10 +52,10 @@ h1 {
     text-align: center;
     width: 90%;
     margin: 0 auto 25px;
-    font-family: 'Poppins', sans-serif; /* Nueva fuente para títulos */
-    color: var(--color-deep-blue); /* Color de título principal (más oscuro) */
+    font-family: 'Poppins', sans-serif; 
+    color: var(--color-deep-blue); 
     line-height: 1.1;
-    font-weight: 700; /* Peso por defecto para Poppins */
+    font-weight: 700; 
 }
  
 h2 {
@@ -63,10 +63,10 @@ h2 {
     text-align: center;
     width: 85%;
     margin: 30px auto 25px;
-    color: var(--color-deep-blue); /* Color de subtítulos (más oscuro) */
-    font-family: 'Poppins', sans-serif; /* Nueva fuente para subtítulos */
+    color: var(--color-deep-blue); 
+    font-family: 'Poppins', sans-serif; 
     letter-spacing: 0.02em;
-    font-weight: 700; /* Peso por defecto para Poppins */
+    font-weight: 700; 
 }
  
 p {
@@ -74,26 +74,23 @@ p {
     text-align: center;
     width: 75%;
     margin: 20px auto;
-    color: var(--color-dark-gray); /* Color de párrafo (más oscuro) */
+    color: var(--color-dark-gray); 
     line-height: 1.7;
-    font-weight: 400; /* Peso por defecto para Inter */
+    font-weight: 400; 
 }
  
 a {
     text-decoration: none;
-    color: var(--color-teal-green); /* Color de enlaces (acento) */
+    color: var(--color-teal-green); 
     transition: color 0.3s ease, transform 0.2s ease;
 }
  
 a:hover {
-    color: var(--color-teal-green-hover); /* Tono más oscuro de acento al pasar el ratón */
+    color: var(--color-teal-green-hover); 
     transform: translateY(-2px);
 }
  
-/* Header Styles - RESTAURADO EXACTAMENTE A LA VERSIÓN ORIGINAL SOLICITADA */
 
-/* --- ORIGINAL HEADER STYLES (for DESKTOP) --- */
-/* These styles remain largely as you had them, ensuring centering on desktop. */
 header {
     background-color: #ffffff; /* Blanco puro para el header */
     height: 70px;
@@ -106,44 +103,41 @@ header {
     top: 0;
     z-index: 1000;
 }
-
+ 
 header nav {
     display: flex;
     gap: 20px;
-    margin-right: auto; /* Pushes the nav to the left (your original setup) */
-    border-bottom: 2px solid var(--color-original-header-line);
-    padding-bottom: 5px;
+    margin-right: auto; /* Empuja la nav a la izquierda */
+    border-bottom: 2px solid var(--color-original-header-line); /* Línea de navegación original */
+    padding-bottom: 5px; /* Espacio entre el texto y la línea */
 }
-
+ 
 header nav a {
     font-size: 1.1em;
     font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 0;
-    color: #333;
+    padding: 5px 10px; /* Padding para que la línea se vea mejor debajo del texto */
+    border-radius: 0; /* Sin bordes redondeados en los enlaces */
+    color: #333; /* Color de los enlaces de nav original */
     transition: color 0.3s ease;
 }
-
+ 
 header nav a:hover {
-    color: var(--color-original-header-line);
+    color: var(--color-original-header-line); /* Color de la línea de nav en hover (original) */
     background-color: transparent;
     transform: none;
 }
-
-/* --- #central-icon STYLES (for DESKTOP) --- */
-/* This ensures it's centered on desktop */
+ 
 #central-icon {
-    position: absolute; /* Keeps it absolutely positioned for desktop */
-    left: 50%; /* Moves it to the center of the header's width */
-    transform: translateX(-50%); /* Adjusts it by half its own width to truly center it */
-    height: 75px; /* Size on desktop */
-    display: flex; /* Helps center the image inside if needed */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 75px;
+    display: flex;
     align-items: center;
     justify-content: center;
-    top: -5px; /* Adjust vertical position for desktop */
-    z-index: 100;
+    top: -5px;
 }
-
+ 
 #central-icon img {
     height: 100%;
     width: auto;
@@ -151,118 +145,11 @@ header nav a:hover {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
-
+ 
 #central-icon img:hover {
     transform: scale(1.1);
 }
 
-/* ---------------------------------------------------------------------- */
-/* --- MEDIA QUERIES: STYLES FOR MOBILE AND IPAD --- */
-/* ---------------------------------------------------------------------- */
-
-@media (max-width: 900px) {
-    /* No specific changes for #central-icon here, unless you have other elements */
-}
-
-@media (max-width: 768px) {
-    /* --- HEADER adjustments for Mobile/iPad (up to 768px width) --- */
-    header {
-        flex-direction: column; /* CRITICAL: Stacks header items vertically */
-        align-items: center; /* <--- CRITICAL: Centers ALL stacked items (including #central-icon and nav) horizontally */
-        padding: 15px 10px;
-        height: auto;
-        padding-top: 20px;
-        position: relative; /* Header must be relative for absolute children (search/carrito) */
-    }
-
-    /* --- #central-icon adjustments for Mobile/iPad --- */
-    #central-icon {
-        position: static; /* <--- KEY: Switches to static position, making it a normal flex item */
-        transform: none; /* <--- Resets the desktop centering transform */
-        left: auto; /* <--- Resets 'left' property */
-        top: auto; /* <--- Resets 'top' property */
-        height: 60px; /* <--- Reduces size for mobile */
-        order: 0; /* <--- Ensures it's the FIRST item in the vertical stack */
-        margin: 0 0 15px 0; /* <--- NEW: Removes auto margins and sets bottom margin only for separation */
-        /* margin-left: auto; and margin-right: auto; were causing issues for centering when align-items: center was also present on parent.
-           Removing them or setting them to 0 ensures align-items: center on the header does its job. */
-    }
-
-    #central-icon img {
-        height: 100%;
-    }
-
-    /* --- NAVIGATION adjustments for Mobile/iPad --- */
-    header nav {
-        order: 1; /* Places nav AFTER #central-icon */
-        width: 100%; /* Nav takes full width */
-        margin-right: 0; /* Resets desktop margin */
-        margin-top: 15px; /* Space above nav */
-        justify-content: center; /* Centers nav links horizontally */
-        flex-wrap: wrap; /* Allows links to wrap */
-        border-bottom: none;
-        padding-bottom: 0;
-        gap: 10px;
-    }
-
-    header nav a {
-        font-size: 0.9em;
-        padding: 5px 8px;
-        white-space: nowrap;
-    }
-
-    /* --- #logo-1 and ICON adjustments for Mobile/iPad --- */
-    #logo-1 {
-        display: none; /* Hides the left logo */
-    }
-
-    #search-button,
-    #carrito {
-        position: absolute;
-        top: 20px;
-        z-index: 101;
-    }
-    #search-button {
-        right: 70px;
-    }
-    #carrito {
-        right: 20px;
-    }
-    #search-icon, #carrito img {
-        height: 25px;
-    }
-}
-
-@media (max-width: 480px) {
-    /* --- Further adjustments for very small mobiles --- */
-    header {
-        padding: 10px 5px;
-        padding-top: 15px;
-    }
-    #central-icon {
-        height: 50px; /* Smaller "N" */
-        margin-bottom: 10px; /* Less bottom margin */
-        /* No margin-left/right here, align-items: center on header handles it */
-    }
-    header nav {
-        margin-top: 10px;
-        gap: 5px;
-        justify-content: space-around;
-    }
-    header nav a {
-        font-size: 0.8em;
-        padding: 5px 5px;
-    }
-    #search-button, #carrito {
-        top: 15px;
-    }
-    #search-button {
-        right: 60px;
-    }
-    #carrito {
-        right: 10px;
-    }
-}
  
 #search, #carrito img {
     height: 30px; /* Tamaño original de los íconos */
@@ -271,7 +158,20 @@ header nav a:hover {
     transition: transform 0.2s ease, opacity 0.2s ease;
 }
  
-#sear
+#search {
+    margin-left: auto; /* Para alinear con el resto de los elementos */
+    margin-right: 15px;
+}
+ 
+#search:hover, #carrito img:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+ 
+#carrito {
+    margin-right: 0;
+}
+ 
  
 /* Main Hero Section Styles for index.html (#texto-empresa) - NUEVO DISEÑO DE CONTENIDO */
 #texto-empresa {
