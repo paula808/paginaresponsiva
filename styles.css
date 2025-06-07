@@ -155,15 +155,95 @@ header nav a:hover {
 }
 
 @media (max-width: 768px) {
-    /* Aquí es donde cambiamos el comportamiento para Tablets y Celulares */
-
-    /* Importante: Ajustamos el header para que los elementos se apilen */
+    /* Ajustamos el header para que los elementos se apilen */
     header {
-        flex-direction: column; /* Apila los elementos: logo_1, nav, central-icon, search, carrito */
-        align-items: center; /* Centra los elementos apilados horizontalmente */
-        padding-top: 20px; /* NEW: Añade espacio superior para que #central-icon no se salga tanto */
-        position: relative; /* Necesario para que los elementos absolute como search/carrito se posicionen respecto a el */
+        flex-direction: column;
+        align-items: center; /* Mantenemos esto para centrar nav y otros, si aplica */
+        padding-top: 20px;
+        position: relative;
     }
+
+    /* Opcional: Oculta el logo de proyectosinfondo.png en móvil si no lo quieres */
+    #logo-1 {
+        display: none;
+    }
+
+    /* ESTILO CLAVE PARA EL LOGO CENTRAL EN MÓVILES (Celular y iPad) */
+    #central-icon {
+        position: static; /* Lo devuelve al flujo normal de flexbox */
+        transform: none; /* Elimina la transformación de centrado de desktop */
+        left: auto; /* Elimina el posicionamiento de la izquierda */
+        top: auto; /* Elimina el posicionamiento superior absoluto */
+        height: 60px; /* Reduce el tamaño del icono central para móviles */
+        order: 0; /* Asegura que sea el PRIMER elemento en la pila vertical del header */
+        margin-bottom: 15px; /* Espacio debajo del icono central */
+        margin-left: auto; /* <--- CLAVE: Empuja solo este elemento a la DERECHA */
+        margin-right: 20px; /* <--- Opcional: para darle un poco de espacio del borde derecho */
+        margin-top: 0; /* Asegura que no tenga margen superior excesivo si lo tenía de antes */
+    }
+
+    #central-icon img {
+        height: 100%;
+    }
+
+    /* ... Mantén los ajustes de nav, search-button, carrito para 768px ... */
+    nav {
+        order: 1;
+        width: 100%;
+        margin-top: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    nav a {
+        font-size: 0.9em;
+        padding: 5px 8px;
+        white-space: nowrap;
+    }
+    #search-button, #carrito {
+        position: absolute;
+        top: 20px;
+        z-index: 101;
+    }
+    #search-button {
+        right: 70px;
+    }
+    #carrito {
+        right: 20px;
+    }
+    #search-icon, #carrito img {
+        height: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Ajustes adicionales para celulares muy pequeños */
+    header {
+        padding-top: 15px;
+    }
+    #central-icon {
+        height: 50px; /* La "N" aún más pequeña */
+        margin-bottom: 10px;
+        margin-right: 15px; /* Ajusta el margen derecho también */
+    }
+    nav {
+        margin-top: 15px;
+        gap: 5px;
+        justify-content: space-around;
+    }
+    nav a {
+        font-size: 0.8em;
+        padding: 5px 5px;
+    }
+    #search-button, #carrito {
+        top: 15px;
+    }
+    #search-button {
+        right: 60px;
+    }
+    #carrito {
+        right: 10px;
+    }
+}
  
 #search, #carrito img {
     height: 30px; /* Tamaño original de los íconos */
